@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="demo.mapper.RoleMapper">
+    <resultMap id="BaseResultMap" type="demo.model.Role">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getRole" resultMap="BaseResultMap">
+        select *
+        from `role`;
+    </select>
+    <select id="selectById" resultType="java.lang.String">
+        select `name`
+        from `role`
+        where id = #{id}
+    </select>
+</mapper>

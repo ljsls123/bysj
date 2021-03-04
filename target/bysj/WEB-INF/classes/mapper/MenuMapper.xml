@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="demo.mapper.MenuMapper">
+    <resultMap id="BaseResultMap" type="demo.model.Menu">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="pid" property="pid" jdbcType="INTEGER"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="selectByid" resultMap="BaseResultMap">
+        select *
+        from menu
+        where id = #{id}
+    </select>
+    <select id="selectByPid" resultMap="BaseResultMap">
+        select *
+        from menu
+        where pid = #{pid}
+    </select>
+</mapper>

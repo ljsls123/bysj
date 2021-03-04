@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="demo.mapper.UserRoleMapper">
+    <resultMap id="BaseResultMapper" type="demo.model.UserRole">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="role_id" property="roleId" jdbcType="INTEGER"/>
+    </resultMap>
+    <insert id="insert" parameterType="demo.model.UserRole">
+        insert into user_role(user_id, role_id)
+        values (#{userId, jdbcType=INTEGER}, #{roleId, jdbcType=INTEGER})
+    </insert>
+    <delete id="deleteUser">
+        delete
+        from user_role
+        where user_id = #{userId};
+    </delete>
+    <select id="selectByUserId" resultMap="BaseResultMapper">
+        select id, user_id, role_id
+        from user_role
+        where user_id = #{userId}
+    </select>
+</mapper>
